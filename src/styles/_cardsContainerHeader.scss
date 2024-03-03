@@ -1,0 +1,30 @@
+@use './globals';
+
+.cards-container-header {
+    @include globals.flexBetween();
+    padding: 12px 24px;
+    @include globals.addBottomOutline();
+}
+
+.cards-container-header-title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cards-container-header-title-container-title {
+    @include globals.setTextStyle(globals.$white, bold, 18px, 145%);
+}
+
+.cards-container-header-title-container-subtitle {
+    @include globals.setTextStyle(#A9C1DC, bold, 16px, 150%);
+}
+
+.cards-container-header-close-btn {
+    @include globals.setSize(32px, 32px);
+    border: none; 
+    color: globals.$white; 
+    border-radius: 50px; 
+    background-color: #1D3E6B;
+    @include globals.addOutline();
+}

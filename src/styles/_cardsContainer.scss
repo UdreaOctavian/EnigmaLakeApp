@@ -1,0 +1,8 @@
+@use './globals';
+
+.cards-container {
+    @include globals.setSize(1312px, 396px);
+    border-radius: 16px;
+    background-color: #11315D;
+    @include globals.addOutline();
+}

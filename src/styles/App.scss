@@ -1,0 +1,18 @@
+@use './globals';
+
+@use './cardsContainer';
+@use './cardsContainerHeader';
+@use './cardsContainerContent';
+@use './tableCard';
+
+//App.tsx
+.main-container {
+    @include globals.setSize(auto, auto);
+    min-height: 100dvh;
+    @include globals.flexCenter();
+    gap: 32px;
+    flex-direction: column;
+    background-color: globals.$midnight-blue;
+    color: globals.$white;
+    padding: 50px 0;
+}

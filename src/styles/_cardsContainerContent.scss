@@ -1,0 +1,116 @@
+@use './globals';
+
+.cards-container-content {
+    padding: 24px;
+    display: flex;
+    gap: 24px;
+}
+
+//--------------------------------------LEFT CARD--------------------------------------
+.cards-container-content-left-card-container {
+    width: 620px;
+    border-radius: 16px;
+    background-color: #1D3E6B;
+    @include globals.addOutline();
+}
+
+.cards-container-content-left-card-container-top-section {
+    padding: 12px 24px;
+    @include globals.addBottomOutline();
+}
+
+.cards-container-content-left-card-container-top-section > p {
+    @include globals.setTextStyle(globals.$white, bold, 18px, 145%);
+}
+
+.cards-container-content-left-card-container-middle-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+}
+
+.cards-container-content-left-card-container-middle-section-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cards-container-content-left-card-container-middle-section-line-title {
+    @include globals.setTextStyle(#A9C1DC, bold, 16px, 150%);
+}
+
+.divider {
+    height: 1px;
+    border: none;
+    background-color: #2B4C79;
+}
+
+.sweeps-balance-info-container {
+    display: flex;
+    align-items: center;
+    gap: 4.57px;
+}
+
+.sweeps-balance-info-container-value {
+    @include globals.setTextStyle(globals.$white, medium, 18.29px, 150%);
+}
+
+.cards-container-content-left-card-container-bottom-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 24px;
+    @include globals.addTopOutline();
+}
+
+.cards-container-content-left-card-container-bottom-section-line {
+    @include globals.setTextStyle(globals.$white, bold, 18.29px, 150%);
+}
+
+//--------------------------------------RIGHT CARD--------------------------------------
+.cards-container-content-right-card-container {
+    display: flex;
+    flex-direction: column;
+    width: 620px;
+    border-radius: 16px;
+    background-color: #1D3E6B;
+    @include globals.addOutline();
+}
+
+.cards-container-content-right-card-container-bottom-section {
+    flex: 1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.my-paragraph {
+    @include globals.setTextStyle(globals.$white, bold, 18px, 145%);
+}
+
+.my-paragraph-two {
+    @include globals.setTextStyle(#8199B4, bold, 16px, 150%);
+}
+
+.redeem-now-btn {
+    padding: 12px 24px; 
+    border-radius: 40px;
+    background-color: #1967DC;
+    border: none;
+    cursor: pointer;
+}
+
+.redeem-now-btn-text {
+    @include globals.setTextStyle(globals.$white, bold, 18px, 135%);
+}
+
+
+@media only screen and (max-width: 1300px) {
+    .cards-container-content {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+}
