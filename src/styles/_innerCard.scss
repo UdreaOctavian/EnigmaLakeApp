@@ -4,7 +4,7 @@
     width: 38.75rem;
     @include globals.flexContainer($direction: column);
     border-radius: 16px;
-    background-color: #1D3E6B;
+    background-color: globals.$secondary-blue-dark;
     @include globals.addOutline();
 }
 
@@ -15,17 +15,4 @@
 
 .inner-card-header-text {
     @include globals.setTextStyle(globals.$white, bold, 1.125rem, 145%);
-}
-
-//---------------------------------------RESPONSIVENESS-----------------------------------------------------
-@media only screen and (max-width: 1300px) {
-    
-}
-
-@media only screen and (max-width: 700px) {
-    
-}
-
-@media only screen and (max-width: 400px) {
-    
 }

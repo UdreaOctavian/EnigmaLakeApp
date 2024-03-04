@@ -15,13 +15,13 @@
 }
 
 .cards-container-content-left-card-container-middle-section-line-title {
-    @include globals.setTextStyle(#A9C1DC, bold, 1rem, 150%);
+    @include globals.setTextStyle(globals.$accent-blue-light, bold, 1rem, 150%);
 }
 
 .divider {
     height: 1px;
     border: none;
-    background-color: #2B4C79;
+    background-color: globals.$secondary-blue-light;
 }
 
 .sweeps-balance-info-container {
@@ -60,7 +60,7 @@
     @include globals.flexContainer($justify: center, $align: center);
     height: 3rem;
     padding: 0.813rem 0.75rem;
-    background-color: #254673;
+    background-color: globals.$secondary-blue;
     border-radius: 100px;
 }
 
@@ -88,13 +88,13 @@
 }
 
 .redeem-wrapper-p-two {
-    @include globals.setTextStyle(#8199B4, bold, 1rem, 150%);
+    @include globals.setTextStyle(globals.$accent-blue, bold, 1rem, 150%);
 }
 
 .redeem-now-btn {
     padding: 0.75rem 1.5rem; 
     border-radius: 40px;
-    background-color: #1967DC;
+    background-color: globals.$alive-blue;
     border: none;
     cursor: pointer;
 }
@@ -107,7 +107,7 @@
     @include globals.flexContainer($justify: space-between);
     height: 3rem;
     flex: 1;
-    background-color: #0C1F3A;
+    background-color: globals.$midnight-blue;
     border-radius: 100px;
     padding: 0.563rem 0.563rem 0.563rem 1rem;
     @include globals.addOutline();
@@ -121,53 +121,31 @@
     @include globals.setTextStyle(globals.$white, bold, 1.125rem, 145%);
 }
 
+.redeem-input::placeholder {
+    @include globals.setTextStyle(globals.$white, bold, 1.125rem, 145%);
+}
+
+.redeem-input::-webkit-inner-spin-button,
+.redeem-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.redeem-input {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
 .set-redeem-btn {
     @include globals.flexContainer($justify: center, $align: center);
     width: 3.468rem;
     height: 1.905rem;
     padding: 0.476rem 0.952rem;
     border-radius: 38.1px;
-    background-color: #1967DC;
+    background-color: globals.$alive-blue;
     border: none;
     cursor: pointer;
 }
 
 .set-redeem-btn-text {
     @include globals.setTextStyle(globals.$white, bold, 0.75rem, 150%);
-}
-
-
-//---------------------------------------RESPONSIVENESS-----------------------------------------------------
-@media only screen and (max-width: 1300px) {
-    .balance-card-content {
-        padding: 24px;        
-        @include globals.flexContainer($direction: column, $gap: 1.5rem);
-    }
-
-    // .inner-card {
-    //     height: 200px;
-    // }
-}
-
-@media only screen and (max-width: 700px) {
-    // .inner-card {
-    //     width: 310px;
-    //     border-radius: 16px;
-    //     background-color: #1D3E6B;
-    //     @include globals.addOutline();
-    // }
-
-    // .inner-card {
-    //     flex: 1;
-    //     min-height: 130px;
-    //     width: 310px;
-    //     @include globals.flexContainer($direction: column);
-    //     border-radius: 16px;
-    //     background-color: #1D3E6B;
-    //     @include globals.addOutline();
-    // }
-}
-
-@media only screen and (max-width: 400px) {
-    
 }

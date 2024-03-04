@@ -3,19 +3,6 @@
 .balance-card-container {
     @include globals.setSize(auto, auto);
     border-radius: 16px;
-    background-color: #11315D;
+    background-color: globals.$primary-blue-dark;
     @include globals.addOutline();
-}
-
-//---------------------------------------RESPONSIVENESS-----------------------------------------------------
-@media only screen and (max-width: 1300px) {
-    
-}
-
-@media only screen and (max-width: 700px) {
-    
-}
-
-@media only screen and (max-width: 400px) {
-    
 }

@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import { createRedemption, getBalance, retrieveRedemption } from '../api/ApiRequests.js'
 import { RequestError, RedemptionData, UserBalanceData } from "../utils/types.js";
 import InnerCard from "./InnerCard.js";
+import { GET_BALANCE_REQUEST_OBJECT, RETRIEVE_REDEMPTION_REQUEST_OBJECT, USER_ID } from "../utils/constants.js";
 
 type CardsContainerProps = {
     setRedemptionIntents: (redemptionIntents: RedemptionData[]) => void
 }
 
 const BalanceCardContent: React.FC<CardsContainerProps> = ({setRedemptionIntents}) => {
-    const [ amountToRedeem, setAmountToRedeem ] = useState<number>(0)
+    const [ amountToRedeem, setAmountToRedeem ] = useState<string>('')
     const [ balanceInfo, setBalanceInfo ] = useState<UserBalanceData>({
         depositBalance: 0,
         lastUpdatedAt: '',
@@ -17,17 +18,10 @@ const BalanceCardContent: React.FC<CardsContainerProps> = ({setRedemptionIntents
         userId: 0,
         winBalance: 0,
     })
-    const USER_ID = 4
-    const getBalanceRequestObject = {
-        coinType: 0,
-        userId: USER_ID
-    }
+    
     const createRedemptionRequestObject = {
         userId: USER_ID,
-        amount: amountToRedeem
-    }
-    const retrieveRedemptionRequestObject = {
-        userId: USER_ID
+        amount: parseInt(amountToRedeem)
     }
 
     const displayError = (error: RequestError | string) => {
@@ -40,34 +34,37 @@ const BalanceCardContent: React.FC<CardsContainerProps> = ({setRedemptionIntents
 
     const maxRedeem = (): void => {
         if (balanceInfo && balanceInfo.winBalance) {
-            if (amountToRedeem !== balanceInfo.winBalance) {
-                setAmountToRedeem(balanceInfo.winBalance)
+            if (parseInt(amountToRedeem) !== balanceInfo.winBalance) {
+                setAmountToRedeem(balanceInfo.winBalance.toString())
             }
         }
     }
 
     const onAmountToRedeemChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const { value } = event.target
-      
-        if (!value) {
-            setAmountToRedeem(0)
-        } else {
-            setAmountToRedeem(parseInt(value))
+        const regex = /^\d*\.?\d{0,2}$/
+
+        if (regex.test(value)) {
+            setAmountToRedeem(value)
         }
     }
     
     const initializeData = () => {
-        getBalance(getBalanceRequestObject, response => setBalanceInfo(response), error => displayError(error))
-        retrieveRedemption(retrieveRedemptionRequestObject, response => setRedemptionIntents(response), error => displayError(error))
+        getBalance(GET_BALANCE_REQUEST_OBJECT, response => setBalanceInfo(response), error => displayError(error))
+        retrieveRedemption(RETRIEVE_REDEMPTION_REQUEST_OBJECT, response => setRedemptionIntents(response), error => displayError(error))
     }
 
     const redeemNow = () => {
-        if (amountToRedeem < 10) {
+        const amount = parseInt(amountToRedeem)
+        if (amount < 10) {
             displayError('Redeemable amount must be greater than 10.')
-        } else if (amountToRedeem > balanceInfo.winBalance) {
+        } else if (amount > balanceInfo.winBalance) {
             displayError('Redeemable amount must be lower than your win balance.')
         } else {
-            createRedemption(createRedemptionRequestObject, () => initializeData(), error => displayError(error))
+            createRedemption(createRedemptionRequestObject, () => {
+                initializeData()
+                setAmountToRedeem('')
+            }, error => displayError(error))
         }
     }
     
@@ -132,7 +129,11 @@ const BalanceCardContent: React.FC<CardsContainerProps> = ({setRedemptionIntents
                             <div className="redeem-input-wrapper">
                                 <input
                                     className="redeem-input"
-                                    type="text"
+                                    type="number"
+                                    step="1"
+                                    min="10"
+                                    placeholder="0.00"
+                                    max={balanceInfo.winBalance}
                                     value={amountToRedeem}
                                     onChange={onAmountToRedeemChange}
                                 />

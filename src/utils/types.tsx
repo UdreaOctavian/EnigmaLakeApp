@@ -23,22 +23,22 @@ export type CreateRedemptionData = {
     message: string
 }
 
-export type CallbackSuccess1 = (data: UserBalanceData) => void
-export type CallbackSuccess2 = (data: CreateRedemptionData) => void
-export type CallbackSuccess3 = (data: RedemptionData[]) => void
+export type GetUserBalanceSuccessCallback = (data: UserBalanceData) => void
+export type CreateRedemptionSuccessCallback = (data: CreateRedemptionData) => void
+export type GetRedemptionsSuccessCallback = (data: RedemptionData[]) => void
   
-export type CallbackSuccess = CallbackSuccess1 | CallbackSuccess2 | CallbackSuccess3
+export type CallbackSuccess = GetUserBalanceSuccessCallback | CreateRedemptionSuccessCallback | GetRedemptionsSuccessCallback
 
-export type GetBalanceRequest = {
+export type GetBalanceRequestObject = {
     coinType: number
     userId: number
 }
 
-export type RetrieveRedemptionRequest = {
+export type RetrieveRedemptionRequestObject = {
     userId: number
 }
 
-export type CreateRedemptionRequest = {
+export type CreateRedemptionRequestObject = {
     amount: number
     userId: number
 }

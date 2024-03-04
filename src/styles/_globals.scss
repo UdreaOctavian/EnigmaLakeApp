@@ -1,14 +1,31 @@
+//--------------------------------------INTER FONT FAMILY---------------------------------------------------
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+
+//--------------------------------------------COLORS--------------------------------------------------------
 $midnight-blue: #0C1F3A;
-$primary-blue: #163560;
+
+$primary-blue-dark: #11315D;
+$primary-blue: #133461;
+$primary-blue-light: #163560;
+
+$secondary-blue-dark: #1D3E6B;
 $secondary-blue: #254673;
-$accent-blue: #2B4C79;
-$light-blue: #436491;
+$secondary-blue-light: #2B4C79;
+
+$accent-blue-dark: #436491;
+$accent-blue: #8199B4;
+$accent-blue-light: #A9C1DC;
+
+$alive-blue: #1967DC;
+
 $white: #FFFFFF;
 $subtle-white: rgba(255, 255, 255, 0.02);
 $orange: #F0AD4E;
 $green: #0DC10D;
+
+
+//---------------------------------------------------MIXINS---------------------------------------------------
 
 @mixin setSize($width, $height) {
     width: $width;
@@ -23,19 +40,19 @@ $green: #0DC10D;
 }
 
 @mixin addTopOutline() {
-    box-shadow: inset 0 1px 0 0 $accent-blue;
+    box-shadow: inset 0 1px 0 0 $secondary-blue-light;
 }
 
 @mixin addBottomOutline() {
-    box-shadow: inset 0 -1px 0 0 $accent-blue;
+    box-shadow: inset 0 -1px 0 0 $secondary-blue-light;
 }
 
 @mixin addTopLeftOutline() {
-    box-shadow: inset 1px 1px 0  $accent-blue;
+    box-shadow: inset 1px 1px 0 $secondary-blue-light;
 }
 
 @mixin addOutline() {
-    box-shadow: inset 0 0 0 1px $accent-blue;
+    box-shadow: inset 0 0 0 1px $secondary-blue-light;
 }
 
 @mixin createBullet($color) {

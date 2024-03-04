@@ -4,7 +4,7 @@
     width: 82rem;
     height: 36.25rem;
     border-radius: 16px;
-    background-color: #11315D;
+    background-color: globals.$primary-blue-dark;
     overflow: hidden;
     @include globals.flexContainer($direction: column);
     @include globals.addOutline();
@@ -27,7 +27,7 @@
 .table-header {
     height: 2.5rem;
     padding: 0 1.5rem;    
-    background-color: #133461;
+    background-color: globals.$primary-blue;
     @include globals.flexContainer($align: center);
     @include globals.addTopLeftOutline();
 }
@@ -39,11 +39,11 @@
 
 .table-header-column-title {
     flex: 1;
-    @include globals.setTextStyle(#A9C1DC, bold, 0.75rem, 150%);
+    @include globals.setTextStyle(globals.$accent-blue-light, bold, 0.75rem, 150%);
 }
 
 .table-row:nth-child(even) {
-    background-color: #133461;
+    background-color: globals.$primary-blue;
 }
 
 .table-row {
@@ -87,59 +87,16 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #163560;
+    background: globals.$primary-blue-light;
     @include globals.addOutline();
 }
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
+    height: 300px;
+    width: 8px;
     border: 0.5rem solid transparent;
     border-radius: 50px;
     background-clip: padding-box;
-    background-color: #436491;
-}
-
-
-//---------------------------------------RESPONSIVENESS-----------------------------------------------------
-@media only screen and (max-width: 1300px) {
-    .table-container {
-        width: 668px;
-        height: 580px;
-        border-radius: 16px;
-        background-color: #11315D;
-        @include globals.addOutline();
-        @include globals.flexContainer($direction: column);
-    }
-
-    .table-data-cell-sweeps,
-    .table-data-cell-status,
-    .table-data-cell-payment {
-        @include globals.flexContainer($align: center, $gap: 0.25rem);
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .table-container {
-        width: 60rem;
-        height: 36.25rem;
-        border-radius: 16px;
-        background-color: #11315D;
-        @include globals.addOutline();
-        @include globals.flexContainer($direction: column);
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .table-container {
-        width: 45rem;
-        height: 36.25rem;
-        border-radius: 16px;
-        background-color: #11315D;
-        @include globals.addOutline();
-        @include globals.flexContainer($direction: column);
-    }
-}
-
-@media only screen and (max-width: 390px) {
-    
+    background-color: globals.$accent-blue-dark;
 }
