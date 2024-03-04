@@ -1,35 +1,17 @@
+import { useState } from 'react'
 import './styles/App.scss'
-import CardsContainer from './components/CardsContainer'
-import { useEffect, useState } from 'react'
-import TableCard from './components/TableCard'
+import { RedemptionData } from './utils/types'
+import BalanceCard from './components/BalanceCard'
+import RedemptionsTable from './components/RedemptionsTable'
 
 export default function App() {
-
-  const [ redemptionIntents, setRedemptionIntents ] = useState([])
-
-  useEffect(() => {
-    // Function to handle resize event
-    const handleResize = () => {
-      // Do something when the window is resized
-      console.log('Window resized');
-      console.log(window.innerHeight);
-      console.log(window.innerWidth);
-    };
-
-    // Add event listener to the window
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup function to remove the event listener when component unmounts
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [])
+  const [ redemptionIntents, setRedemptionIntents ] = useState<RedemptionData[]>([])
 
   return (
-    <div className='main-container'>
-      <CardsContainer setRedemptionIntents={setRedemptionIntents}/>
+    <div className='app-container'>
+      <BalanceCard setRedemptionIntents={setRedemptionIntents}/>
 
-      <TableCard redemptionIntents={redemptionIntents}/>
+      <RedemptionsTable redemptionIntents={redemptionIntents}/>
     </div>
   )
 }

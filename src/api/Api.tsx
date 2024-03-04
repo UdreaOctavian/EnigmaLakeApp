@@ -1,12 +1,12 @@
+import { RequestData, CallbackSuccess, CallbackFailure } from "../utils/types"
+
 export const sendRequest = (
-    serverAddress,
-    endpoint,
-    method,
-    data,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    callbackForSuccess: ((data: any) => void) | null = null,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    callbackForFailure: ((data: any) => void) | null = null
+    serverAddress: string,
+    endpoint: string,
+    method: string,
+    data: RequestData,
+    callbackForSuccess: CallbackSuccess = () => {},
+    callbackForFailure: CallbackFailure = () => {}
   ) => {
       const url = `${serverAddress}${endpoint}`
       const options = {
@@ -19,6 +19,6 @@ export const sendRequest = (
     
       fetch(url, options)
         .then(res => res.json())
-        .then(data => callbackForSuccess ? callbackForSuccess(data) : null)
-        .catch(error => callbackForFailure ? callbackForFailure(error) : null)
-  }
+        .then(data => callbackForSuccess(data))
+        .catch(error => callbackForFailure(error))
+}

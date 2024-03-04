@@ -1,0 +1,173 @@
+@use './globals';
+
+.balance-card-content {
+    @include globals.flexContainer($gap: 1.5rem);
+    padding: 1.5rem;
+}
+
+.cards-container-content-left-card-container-middle-section {
+    @include globals.flexContainer($direction: column, $gap: 1.5rem);
+    padding: 1.5rem;
+}
+
+.cards-container-content-left-card-container-middle-section-line {
+    @include globals.flexContainer($justify: space-between, $align: center);
+}
+
+.cards-container-content-left-card-container-middle-section-line-title {
+    @include globals.setTextStyle(#A9C1DC, bold, 1rem, 150%);
+}
+
+.divider {
+    height: 1px;
+    border: none;
+    background-color: #2B4C79;
+}
+
+.sweeps-balance-info-container {
+    @include globals.flexContainer($align: center, $gap: 0.297rem);
+}
+
+.sweeps-balance-info-container-value {
+    @include globals.setTextStyle(globals.$white, medium, 1.125rem, 150%);
+}
+
+.cards-container-content-left-card-container-bottom-section {
+    padding: 0.75rem 1.5rem;
+    @include globals.flexContainer($justify: space-between);
+    @include globals.addTopOutline();
+}
+
+.cards-container-content-left-card-container-bottom-section-line {
+    @include globals.setTextStyle(globals.$white, bold, 1.125rem, 150%);
+}
+
+.redeem-wrapper {
+    flex: 1;
+    padding: 1.5rem;
+    @include globals.flexContainer($direction: column, $justify: space-between);
+}
+
+.redeem-wrapper-amount-container {
+    @include globals.flexContainer($gap: 1rem);
+}
+
+.redeem-currency {
+    @include globals.flexContainer($direction: column, $gap: 0.5rem);
+}
+
+.type-of-redeems-container {
+    @include globals.flexContainer($justify: center, $align: center);
+    height: 3rem;
+    padding: 0.813rem 0.75rem;
+    background-color: #254673;
+    border-radius: 100px;
+}
+
+.type-of-redeems-container-inner {
+    @include globals.flexContainer($align: center, $gap: 0.5rem);
+}
+
+.type-of-redeems-container-inner-svg {
+    width: 1.715rem;
+    height: 1.715rem;
+}
+
+.redeem-action-wrapper {
+    flex: 1;
+    @include globals.flexContainer($direction: column, $gap: 0.5rem);
+}
+
+.redeem-header {
+    flex: 1;
+    @include globals.flexContainer($justify: space-between);
+}
+
+.redeem-wrapper-p {
+    @include globals.setTextStyle(globals.$white, bold, 1.125rem, 145%);
+}
+
+.redeem-wrapper-p-two {
+    @include globals.setTextStyle(#8199B4, bold, 1rem, 150%);
+}
+
+.redeem-now-btn {
+    padding: 0.75rem 1.5rem; 
+    border-radius: 40px;
+    background-color: #1967DC;
+    border: none;
+    cursor: pointer;
+}
+
+.redeem-now-btn-text {
+    @include globals.setTextStyle(globals.$white, bold, 1.125rem, 135%);
+}
+
+.redeem-input-wrapper {
+    @include globals.flexContainer($justify: space-between);
+    height: 3rem;
+    flex: 1;
+    background-color: #0C1F3A;
+    border-radius: 100px;
+    padding: 0.563rem 0.563rem 0.563rem 1rem;
+    @include globals.addOutline();
+}
+
+.redeem-input {
+    width: fit-content;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    @include globals.setTextStyle(globals.$white, bold, 1.125rem, 145%);
+}
+
+.set-redeem-btn {
+    @include globals.flexContainer($justify: center, $align: center);
+    width: 3.468rem;
+    height: 1.905rem;
+    padding: 0.476rem 0.952rem;
+    border-radius: 38.1px;
+    background-color: #1967DC;
+    border: none;
+    cursor: pointer;
+}
+
+.set-redeem-btn-text {
+    @include globals.setTextStyle(globals.$white, bold, 0.75rem, 150%);
+}
+
+
+//---------------------------------------RESPONSIVENESS-----------------------------------------------------
+@media only screen and (max-width: 1300px) {
+    .balance-card-content {
+        padding: 24px;        
+        @include globals.flexContainer($direction: column, $gap: 1.5rem);
+    }
+
+    // .inner-card {
+    //     height: 200px;
+    // }
+}
+
+@media only screen and (max-width: 700px) {
+    // .inner-card {
+    //     width: 310px;
+    //     border-radius: 16px;
+    //     background-color: #1D3E6B;
+    //     @include globals.addOutline();
+    // }
+
+    // .inner-card {
+    //     flex: 1;
+    //     min-height: 130px;
+    //     width: 310px;
+    //     @include globals.flexContainer($direction: column);
+    //     border-radius: 16px;
+    //     background-color: #1D3E6B;
+    //     @include globals.addOutline();
+    // }
+}
+
+@media only screen and (max-width: 400px) {
+    
+}

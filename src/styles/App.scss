@@ -1,18 +1,44 @@
 @use './globals';
 
-@use './cardsContainer';
-@use './cardsContainerHeader';
-@use './cardsContainerContent';
-@use './tableCard';
+@use './balanceCard';
+@use './balanceCardHeader';
+@use './balanceCardContent';
+@use './innerCard';
+@use './redemptionsTable';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
 
 //App.tsx
-.main-container {
+.app-container {
     @include globals.setSize(auto, auto);
     min-height: 100dvh;
-    @include globals.flexCenter();
-    gap: 32px;
+    @include globals.flexContainer($justify: center, $align: center);
+    gap: 2rem;
     flex-direction: column;
     background-color: globals.$midnight-blue;
     color: globals.$white;
-    padding: 50px 0;
+    padding: 3.125rem 0;
+}
+
+//---------------------------------------RESPONSIVENESS-----------------------------------------------------
+@media only screen and (max-width: 1300px) {
+    * {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    * {
+        font-size: 8px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    
 }

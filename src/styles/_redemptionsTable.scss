@@ -1,0 +1,145 @@
+@use './globals';
+
+.table-container {
+    width: 82rem;
+    height: 36.25rem;
+    border-radius: 16px;
+    background-color: #11315D;
+    overflow: hidden;
+    @include globals.flexContainer($direction: column);
+    @include globals.addOutline();
+}
+
+.table-title {
+    height: 3.75rem;
+    padding: 0.75rem 1.5rem;    
+    @include globals.flexContainer($justify: center, $align: center);
+    @include globals.setTextStyle(globals.$white, bold, 1.125rem, 145%);
+}
+
+.table-content {
+    flex: 1;
+    overflow-y: scroll;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.table-header {
+    height: 2.5rem;
+    padding: 0 1.5rem;    
+    background-color: #133461;
+    @include globals.flexContainer($align: center);
+    @include globals.addTopLeftOutline();
+}
+
+.table-header-wrapper {
+    flex: 1;
+    @include globals.flexContainer();
+}
+
+.table-header-column-title {
+    flex: 1;
+    @include globals.setTextStyle(#A9C1DC, bold, 0.75rem, 150%);
+}
+
+.table-row:nth-child(even) {
+    background-color: #133461;
+}
+
+.table-row {
+    height: 3rem;
+    padding: 0 1.5rem;    
+    @include globals.flexContainer($align: center);
+    @include globals.addTopLeftOutline();
+}
+
+.table-data-cell {
+    flex: 1;
+    @include globals.setTextStyle(globals.$white, bold, 0.875rem, 150%);
+}
+
+.table-data-cell-sweeps-text {
+    @include globals.setTextStyle(globals.$green, bold, 0.875rem, 150%);
+}
+
+.table-data-cell-status-text,
+.table-data-cell-payment-text {
+    @include globals.setTextStyle(globals.$white, bold, 0.875rem, 150%);
+}
+
+.table-data-cell-sweeps,
+.table-data-cell-status,
+.table-data-cell-payment {
+    @include globals.flexContainer($align: center, $gap: 0.625rem);
+}
+
+.table-data-cell-status-bullet {
+    @include globals.createBullet(globals.$green);
+}
+
+.table-data-cell-payment-bullet {
+    @include globals.createBullet(globals.$orange);
+}
+
+//-----------------------------------------------------SCROLL BAR---------------------------------------------
+::-webkit-scrollbar {
+    width: 1.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #163560;
+    @include globals.addOutline();
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:hover {
+    border: 0.5rem solid transparent;
+    border-radius: 50px;
+    background-clip: padding-box;
+    background-color: #436491;
+}
+
+
+//---------------------------------------RESPONSIVENESS-----------------------------------------------------
+@media only screen and (max-width: 1300px) {
+    .table-container {
+        width: 668px;
+        height: 580px;
+        border-radius: 16px;
+        background-color: #11315D;
+        @include globals.addOutline();
+        @include globals.flexContainer($direction: column);
+    }
+
+    .table-data-cell-sweeps,
+    .table-data-cell-status,
+    .table-data-cell-payment {
+        @include globals.flexContainer($align: center, $gap: 0.25rem);
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .table-container {
+        width: 60rem;
+        height: 36.25rem;
+        border-radius: 16px;
+        background-color: #11315D;
+        @include globals.addOutline();
+        @include globals.flexContainer($direction: column);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .table-container {
+        width: 45rem;
+        height: 36.25rem;
+        border-radius: 16px;
+        background-color: #11315D;
+        @include globals.addOutline();
+        @include globals.flexContainer($direction: column);
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    
+}

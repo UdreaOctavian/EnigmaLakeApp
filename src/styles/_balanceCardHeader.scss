@@ -1,0 +1,42 @@
+@use './globals';
+
+.balance-card-header {
+    @include globals.flexContainer($justify: space-between, $align: center);
+    padding: 0.75rem 1.5rem;
+    @include globals.addBottomOutline();
+}
+
+.balance-card-header-title-container {
+    @include globals.flexContainer($direction: column, $gap: 0.25rem);
+}
+
+.balance-card-header-title {
+    @include globals.setTextStyle(globals.$white, bold, 1.125rem, 145%);
+}
+
+.balance-card-subtitle {
+    @include globals.setTextStyle(#A9C1DC, bold, 1rem, 150%);
+}
+
+.balance-card-close-btn {
+    @include globals.setSize(2rem, 2rem);
+    border: none;
+    cursor: pointer;
+    color: globals.$white; 
+    border-radius: 50px; 
+    background-color: #1D3E6B;
+    @include globals.addOutline();
+}
+
+//---------------------------------------RESPONSIVENESS-----------------------------------------------------
+@media only screen and (max-width: 1300px) {
+    
+}
+
+@media only screen and (max-width: 700px) {
+    
+}
+
+@media only screen and (max-width: 400px) {
+    
+}
